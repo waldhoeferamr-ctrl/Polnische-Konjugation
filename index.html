@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Polnische Verbenpaare mit Aspekt</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7fa; margin: 2em; }
+    h1 { color: #0a4e7d; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 6px; }
+    a { text-decoration: none; color: #196cb9; transition: color 0.2s; }
+    a:hover { color: #b92119; }
+    .verb { font-weight: bold; }
+    .aspect { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Polnische Verbenpaare – Aspektliste</h1>
+  <ul id="verblist"></ul>
+
+  <script>
+    // Liste der Verbenpaare mit deutscher Bedeutung
+    const verbs = [
+      { imp: "być", perf: "być", de: "sein" },
+      { imp: "mieć", perf: "mieć", de: "haben" },
+      { imp: "robić", perf: "zrobić", de: "machen, tun" },
+      { imp: "znać", perf: "poznać", de: "kennen, kennenlernen" },
+      { imp: "móc", perf: "móc", de: "können, dürfen" },
+      { imp: "mówić", perf: "powiedzieć", de: "sprechen, sagen" },
+      { imp: "chcieć", perf: "chcieć", de: "wollen" },
+      { imp: "wiedzieć", perf: "dowiedzieć się", de: "wissen, erfahren" },
+      { imp: "iść", perf: "pójść", de: "gehen (einmalig)" },
+      { imp: "przychodzić", perf: "przyjść", de: "kommen, ankommen" },
+      { imp: "jeść", perf: "zjeść", de: "essen" },
+      { imp: "pić", perf: "wypić", de: "trinken" },
+      { imp: "kupować", perf: "kupić", de: "kaufen" },
+      { imp: "sprzedawać", perf: "sprzedać", de: "verkaufen" },
+      { imp: "dawać", perf: "dać", de: "geben" },
+      { imp: "brać", perf: "wziąć", de: "nehmen" },
+      { imp: "widzieć", perf: "zobaczyć", de: "sehen" },
+      { imp: "słuchać", perf: "posłuchać", de: "zuhören" },
+      { imp: "czytać", perf: "przeczytać", de: "lesen" },
+      { imp: "pisać", perf: "napisać", de: "schreiben" },
+      { imp: "myśleć", perf: "pomyśleć", de: "denken" },
+      { imp: "patrzeć", perf: "spojrzeć", de: "schauen" },
+      { imp: "stać", perf: "stanąć", de: "stehen" },
+      { imp: "siedzieć", perf: "usiąść", de: "sitzen, sich setzen" },
+      { imp: "leżeć", perf: "położyć się", de: "liegen, sich hinlegen" },
+      { imp: "pytać", perf: "zapytać", de: "fragen" },
+      { imp: "odpowiadać", perf: "odpowiedzieć", de: "antworten" },
+      { imp: "kochać", perf: "pokochać", de: "lieben" },
+      { imp: "lubić", perf: "polubić", de: "mögen" },
+      { imp: "śmiać się", perf: "zaśmiać się", de: "lachen" },
+      { imp: "płakać", perf: "zapłakać", de: "weinen" },
+      { imp: "uczyć się", perf: "nauczyć się", de: "lernen" },
+      { imp: "pracować", perf: "popracować", de: "arbeiten" },
+      { imp: "grać", perf: "zagrać", de: "spielen" },
+      { imp: "biegać", perf: "pobiec", de: "laufen, rennen" },
+      { imp: "jechać", perf: "pojechać", de: "fahren" },
+      { imp: "wsiadać", perf: "wsiąść", de: "einsteigen" },
+      { imp: "wysiadać", perf: "wysiąść", de: "aussteigen" },
+      { imp: "gotować", perf: "ugotować", de: "kochen" },
+      { imp: "myć", perf: "umyć", de: "waschen" },
+      { imp: "sprzątać", perf: "posprzątać", de: "aufräumen" },
+      { imp: "oglądać", perf: "obejrzeć", de: "anschauen" },
+      { imp: "pożyczać", perf: "pożyczyć", de: "ausleihen, borgen" },
+      { imp: "pamiętać", perf: "zapamiętać", de: "sich erinnern" },
+      { imp: "zapominać", perf: "zapomnieć", de: "vergessen" },
+      { imp: "śpiewać", perf: "zaśpiewać", de: "singen" },
+      { imp: "tańczyć", perf: "zatańczyć", de: "tanzen" },
+      { imp: "mieszkać", perf: "zamieszkać", de: "wohnen" },
+      { imp: "wstawać", perf: "wstać", de: "aufstehen" },
+      { imp: "zasypiać", perf: "zasnąć", de: "einschlafen" },
+      { imp: "dzwonić", perf: "zadzwonić", de: "anrufen" },
+      { imp: "telefonować", perf: "zadzwonić", de: "telefonieren" },
+      { imp: "czyścić", perf: "wyczyścić", de: "putzen, reinigen" },
+      { imp: "otwierać", perf: "otworzyć", de: "öffnen" },
+      { imp: "zamykać", perf: "zamknąć", de: "schließen" },
+      { imp: "znajdować", perf: "znaleźć", de: "finden" },
+      { imp: "gubić", perf: "zgubić", de: "verlieren" },
+      { imp: "trzymać", perf: "utrzymać", de: "halten, behalten" },
+      { imp: "ciągnąć", perf: "pociągnąć", de: "ziehen" },
+      { imp: "pchać", perf: "popchnąć", de: "schieben, stoßen" },
+      { imp: "łapać", perf: "złapać", de: "fangen, greifen" },
+      { imp: "rzucać", perf: "rzucić", de: "werfen" },
+      { imp: "prowadzić", perf: "poprowadzić", de: "führen, fahren" },
+      { imp: "biec", perf: "pobiec", de: "rennen, eilen" },
+      { imp: "skakać", perf: "skoczyć", de: "springen" },
+      { imp: "wąchać", perf: "powąchać", de: "riechen" },
+      { imp: "czuć", perf: "poczuć", de: "fühlen, empfinden" },
+      { imp: "spać", perf: "przespać", de: "schlafen, durchschlafen" },
+      { imp: "budzić się", perf: "obudzić się", de: "aufwachen" },
+      { imp: "marzyć", perf: "zamarzyć", de: "träumen" },
+      { imp: "opowiadać", perf: "opowiedzieć", de: "erzählen" },
+      { imp: "pokazywać", perf: "pokazać", de: "zeigen" },
+      { imp: "kłaść", perf: "położyć", de: "legen" },
+      { imp: "stawiać", perf: "postawić", de: "stellen" },
+      { imp: "wkładać", perf: "włożyć", de: "hineinlegen, hineinstecken" },
+      { imp: "wyjmować", perf: "wyjąć", de: "herausnehmen" },
+      { imp: "ubierać", perf: "ubrać", de: "anziehen" },
+      { imp: "rozbierać", perf: "rozebrać", de: "ausziehen" },
+      { imp: "piec", perf: "upiec", de: "backen" },
+      { imp: "kroić", perf: "pokroić", de: "schneiden" },
+      { imp: "mieszać", perf: "wymieszać", de: "mischen" },
+      { imp: "ważyć", perf: "zważyć", de: "wiegen" },
+      { imp: "próbować", perf: "spróbować", de: "probieren, versuchen" },
+      { imp: "zaczynać", perf: "zacząć", de: "anfangen, beginnen" },
+      { imp: "kończyć", perf: "skończyć", de: "beenden, abschließen" },
+      { imp: "przerywać", perf: "przerwać", de: "unterbrechen" },
+      { imp: "wyjaśniać", perf: "wyjaśnić", de: "erklären" },
+      { imp: "tłumaczyć", perf: "wytłumaczyć", de: "übersetzen, erklären" },
+      { imp: "zapraszać", perf: "zaprosić", de: "einladen" },
+      { imp: "dziękować", perf: "podziękować", de: "danken" },
+      { imp: "prosić", perf: "poprosić", de: "bitten" },
+      { imp: "zgadzać się", perf: "zgodzić się", de: "zustimmen, einverstanden sein" },
+      { imp: "kłócić się", perf: "pokłócić się", de: "streiten" },
+      { imp: "zamyślać się", perf: "zamyślić się", de: "nachdenken, sich verlieren" },
+      { imp: "żartować", perf: "zażartować", de: "scherzen, witzeln" },
+      { imp: "witać", perf: "powitać", de: "grüßen, willkommen heißen" },
+      { imp: "żegnać", perf: "pożegnać", de: "verabschieden" },
+      { imp: "wyjeżdżać", perf: "wyjechać", de: "abfahren, verreisen" },
+      { imp: "przyjeżdżać", perf: "przyjechać", de: "ankommen" },
+      { imp: "startować", perf: "wystartować", de: "starten" },
+      { imp: "lądować", perf: "wylądować", de: "landen" },
+      { imp: "wysyłać", perf: "wysłać", de: "senden, schicken" },
+      { imp: "odbierać", perf: "odebrać", de: "empfangen, abholen" },
+      { imp: "wybierać", perf: "wybrać", de: "wählen, aussuchen" },
+      { imp: "przypominać", perf: "przypomnieć", de: "erinnern" },
+      { imp: "malować", perf: "namalować", de: "malen" },
+      { imp: "rysować", perf: "narysować", de: "zeichnen" },
+      { imp: "fotografować", perf: "sfotografować", de: "fotografieren" },
+      { imp: "spędzać", perf: "spędzić", de: "verbringen" },
+      { imp: "zostawać", perf: "zostać", de: "bleiben" },
+      { imp: "zmieniać", perf: "zmienić", de: "ändern, wechseln" },
+      { imp: "naprawiać", perf: "naprawić", de: "reparieren" },
+      { imp: "budować", perf: "zbudować", de: "bauen" },
+      { imp: "tworzyć", perf: "stworzyć", de: "erschaffen, kreieren" },
+      { imp: "potrzebować", perf: "potrzebować", de: "brauchen" },
+      { imp: "należeć", perf: "należeć", de: "gehören" },
+      { imp: "kosztować", perf: "kosztować", de: "kosten" },
+      { imp: "płacić", perf: "zapłacić", de: "bezahlen" },
+      { imp: "pomagać", perf: "pomóc", de: "helfen" },
+      { imp: "spotykać", perf: "spotkać", de: "treffen" },
+      { imp: "wyglądać", perf: "wyglądać", de: "aussehen" },
+      { imp: "proponować", perf: "zaproponować", de: "vorschlagen" },
+      { imp: "testować", perf: "przetestować", de: "testen" },
+      { imp: "podążać", perf: "podążyć", de: "folgen, nachgehen" },
+      { imp: "zabierać", perf: "zabrać", de: "mitnehmen" },
+      { imp: "tracić", perf: "stracić", de: "verlieren" },
+      { imp: "wygrywać", perf: "wygrać", de: "gewinnen" },
+      { imp: "przegrywać", perf: "przegrać", de: "verlieren – Spiel" },
+      { imp: "rozwiązywać", perf: "rozwiązać", de: "lösen" },
+      { imp: "przysyłać", perf: "przysłać", de: "zusenden" },
+      { imp: "bać się", perf: "przestraszyć się", de: "Angst haben, erschrecken" },
+      { imp: "cieszyć się", perf: "ucieszyć się", de: "sich freuen" },
+      { imp: "nudzić się", perf: "znudzić się", de: "sich langweilen" },
+      { imp: "denerwować się", perf: "zdenerwować się", de: "sich ärgern" },
+      { imp: "złościć się", perf: "zezłościć się", de: "wütend werden" },
+      { imp: "smucić się", perf: "zasmucić się", de: "traurig werden" },
+      { imp: "interesować się", perf: "zainteresować się", de: "sich interessieren" },
+      { imp: "cenić", perf: "docenić", de: "schätzen, würdigen" },
+      { imp: "żądać", perf: "zażądać", de: "fordern, verlangen" },
+      { imp: "sprawdzać", perf: "sprawdzić", de: "prüfen, kontrollieren" },
+      { imp: "potwierdzać", perf: "potwierdzić", de: "bestätigen" },
+      { imp: "tęsknić", perf: "zatęsknić", de: "vermissen" },
+      { imp: "śnić", perf: "prześnić", de: "träumen" },
+      { imp: "trzymać", perf: "zatrzymać", de: "halten, behalten, stoppen" },
+      { imp: "budzić", perf: "obudzić", de: "wecken" },
+      { imp: "kłamać", perf: "okłamać", de: "lügen, belügen" },
+      { imp: "szukać", perf: "poszukać", de: "suchen" },
+      { imp: "obserwować", perf: "zaobserwować", de: "beobachten" },
+      { imp: "przekonywać", perf: "przekonać", de: "überzeugen" },
+      { imp: "wychodzić", perf: "wyjść", de: "hinausgehen" },
+      { imp: "wchodzić", perf: "wejść", de: "hereingehen" },
+      { imp: "wracać", perf: "wrócić", de: "zurückkehren" },
+      { imp: "pozwalać", perf: "pozwolić", de: "erlauben" },
+      { imp: "zabraniać", perf: "zabronić", de: "verbieten" },
+      { imp: "wołać", perf: "zawołać", de: "rufen" },
+      { imp: "zgubić", perf: "gubić", de: "verlieren" },
+      { imp: "przechowywać", perf: "przechować", de: "aufbewahren" },
+      { imp: "podawać", perf: "podać", de: "geben, reichen" },
+      { imp: "puszczać", perf: "puścić", de: "loslassen" },
+      { imp: "przynosić", perf: "przynieść", de: "bringen" },
+      { imp: "dostawać", perf: "dostać", de: "bekommen, erhalten" },
+      { imp: "porządkować", perf: "uporządkować", de: "ordnen, organisieren" },
+      { imp: "zamyślać", perf: "zamyślić", de: "nachdenken" },
+      { imp: "planować", perf: "zaplanować", de: "planen" },               
+      { imp: "mienić", perf: "zmienić", de: "wechseln, verändern" },
+      { imp: "przybywać", perf: "przybyć", de: "ankommen, erscheinen" },
+      { imp: "podnosić", perf: "podnieść", de: "anheben, steigern" },
+      { imp: "rozumieć", perf: "zrozumieć", de: "verstehen" },
+      { imp: "grać", perf: "zagrać", de: "spielen" },
+      { imp: "zwiększać", perf: "zwiększyć", de: "vergrößern" },
+      { imp: "rejestrować", perf: "zarejestrować", de: "registrieren" },
+
+
+      { imp: "obniżać", perf: "obniżyć", de: "senken, vermindern" }
+          ];
+
+    // Funktion zum Entfernen polnischer Sonderzeichen für Dateinamen
+    function normalizeVerb(verb) {
+      return verb.normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Diakritika entfernen
+                 .replace(/ł/g, 'l').replace(/Ł/g, 'L')
+                 .replace(/ą/g, 'a').replace(/ę/g, 'e')
+                 .replace(/ś/g, 's').replace(/ć/g, 'c')
+                 .replace(/ż/g, 'z').replace(/ź/g, 'z')
+                 .replace(/ń/g, 'n').replace(/ó/g, 'o');
+    }
+
+    const list = document.getElementById('verblist');
+    verbs.forEach(v => {
+      let li = document.createElement('li');
+      let a = document.createElement('a');
+      a.href = "konjugation/" + normalizeVerb(v.imp) + ".html";
+      a.innerHTML = `<span class="verb">${v.imp}${v.imp !== v.perf ? " – " + v.perf : ""}</span> <span class="aspect">(${v.de})</span>`;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>
