@@ -211,7 +211,7 @@
     verbs.forEach(v => {
       let li = document.createElement('li');
       let a = document.createElement('a');
-      a.href = "Polnische-Konjugation/" + normalizeVerb(v.imp) + ".html";
+      a.href = normalizeVerb(v.imp) + ".html";
       a.innerHTML = `<span class="verb">${v.imp}${v.imp !== v.perf ? " – " + v.perf : ""}</span> <span class="aspect">(${v.de})</span>`;
       li.appendChild(a);
       list.appendChild(li);
