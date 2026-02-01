@@ -1,115 +1,366 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<title>Konjugation von robić – machen/tun</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 2em;
-    background: #f9f9fb;
-    color: #222;
-  }
-  h1 {
-    color: #0a4e7d;
-    margin-bottom: 1em;
-  }
-  h2 {
-    color: #0a4e7d;
-    margin-top: 2em;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1em;
-  }
-  th {
-    text-align: left;
-    background-color: #0a4e7d;
-    color: white;
-    padding: 0.5em;
-    font-size: 1.2em;
-  }
-  td {
-    vertical-align: top;
-    padding: 0.4em 0.5em;
-    border-bottom: 1px solid #ddd;
-    font-size: 1em;
-  }
-  .aspect {
-    font-style: italic;
-    margin-bottom: 0.5em;
-  }
-  .examples {
-    background: #eef4fb;
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: inset 0 0 4px #aaccee;
-  }
-  .examples p {
-    margin: 0.3em 0;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polnische Konjugation: robić / zrobić</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        .aspect-info {
+            background-color: #e8f6f3;
+            padding: 15px;
+            border-left: 4px solid #16a085;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: #fef9e7;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+            border-radius: 4px;
+        }
+        .polish {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .translation {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .verb-pair {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .verb-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        @media (max-width: 768px) {
+            .verb-pair {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<h1>robić – machen/tun (Imperfektiv)</h1>
-<div class="aspect">Aspekt: Imperfektiv</div>
-
-<table>
-  <thead>
-    <tr><th>Form</th><th>Polnisch</th><th>Deutsch</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Infinitiv</td><td>robić</td><td>machen, tun</td></tr>
-    <tr><td rowspan="6">Präsens</td><td>robię</td><td>ich mache</td></tr>
-    <tr><td>robisz</td><td>du machst</td></tr>
-    <tr><td>robi</td><td>er/sie/es macht</td></tr>
-    <tr><td>robimy</td><td>wir machen</td></tr>
-    <tr><td>robicie</td><td>ihr macht</td></tr>
-    <tr><td>robią</td><td>sie machen</td></tr>
-
-    <tr><td rowspan="6">Präteritum</td><td>robiłem (m) / robiłam (f)</td><td>ich machte (m) / ich machte (f)</td></tr>
-    <tr><td>robiłeś (m) / robiłaś (f)</td><td>du machtest (m) / du machtest (f)</td></tr>
-    <tr><td>robił (m) / robiła (f)</td><td>er machte / sie machte</td></tr>
-    <tr><td>robiliśmy (m/mix) / robiłyśmy (f)</td><td>wir machten (m/mix) / wir machten (f)</td></tr>
-    <tr><td>robiliście (m/mix) / robiłyście (f)</td><td>ihr machtet (m/mix) / ihr machtet (f)</td></tr>
-    <tr><td>robili (m/mix) / robiły (f)</td><td>sie machten (m/mix) / sie machten (f)</td></tr>
-
-    <tr><td rowspan="6">Futur</td><td>będę robić</td><td>ich werde machen</td></tr>
-    <tr><td>będziesz robić</td><td>du wirst machen</td></tr>
-    <tr><td>będzie robić</td><td>er/sie/es wird machen</td></tr>
-    <tr><td>będziemy robić</td><td>wir werden machen</td></tr>
-    <tr><td>będziecie robić</td><td>ihr werdet machen</td></tr>
-    <tr><td>będą robić</td><td>sie werden machen</td></tr>
-
-    <tr><td rowspan="2">Imperativ</td><td>rób!</td><td>mach!</td></tr>
-    <tr><td>róbcie!</td><td>macht!</td></tr>
-  </tbody>
-</table>
-
-<div class="examples">
-  <div style="font-weight: bold; color: #0a4e7d; font-size: 1.1em; margin-bottom: 0.5em;">5 Beispielsätze (Imperfektiv):</div>
-  <p>1. Robię obiad. – Ich mache das Mittagessen.</p>
-  <p>2. Robiłeś to dobrze. – Du hast das gut gemacht. (männlich)</p>
-  <p>3. Robiłyśmy remont. – Wir haben renoviert. (weiblich)</p>
-  <p>4. Będziemy robić zakupy. – Wir werden einkaufen.</p>
-  <p>5. Rób to szybciej! – Mach das schneller!</p>
-</div>
-
-<hr style="margin:3em 0; border-color:#ccc;">
-
-<h1>zrobić – machen/tun (Perfektiv)</h1>
-<div class="aspect">Aspekt: Perfektiv</div>
-
-<table>
-  <thead>
-    <tr><th>Form</th><th>Polnisch</th><th>Deutsch</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Infinitiv</td><td>zrobić</td><td>machen, tun</td></tr>
-    <tr><td rowspan="6">Futur</td><td>zrobię</td><td>ich werde machen</td></tr>
-    <tr><td>zrobisz</td><td>du wirst machen</td></tr>
-    <tr><td>zrobi</td><td>er/sie/es wird machen</td></tr>
-    <tr><td>zrobimy</td><td>wir werden machen</td></tr>
-    <tr><td>zrobicie</td><td>ihr werdet machen</td></tr>
+    <h1>robić / zrobić – machen/tun</h1>
+    
+    <div class="aspect-info">
+        <p><strong>Verbaspekt im Polnischen:</strong> Polnische Verben treten meist in Paaren auf: imperfektiv (niedokonany) für wiederholte, andauernde oder unvollendete Handlungen, und perfektiv (dokonany) für einmalige, abgeschlossene Handlungen.</p>
+    </div>
+    
+    <div class="verb-pair">
+        <div class="verb-column">
+            <h2>robić (aspekt niedokonany – imperfektiv)</h2>
+            <p class="translation">Übersetzung: machen, tun (andauernd, wiederholt, unvollendet)</p>
+            
+            <h3>Präsens</h3>
+            <table>
+                <tr>
+                    <th>Person</th>
+                    <th>Polnisch</th>
+                    <th>Deutsch</th>
+                </tr>
+                <tr>
+                    <td>ja</td>
+                    <td class="polish">robię</td>
+                    <td>ich mache</td>
+                </tr>
+                <tr>
+                    <td>ty</td>
+                    <td class="polish">robisz</td>
+                    <td>du machst</td>
+                </tr>
+                <tr>
+                    <td>on/ona/ono</td>
+                    <td class="polish">robi</td>
+                    <td>er/sie/es macht</td>
+                </tr>
+                <tr>
+                    <td>my</td>
+                    <td class="polish">robimy</td>
+                    <td>wir machen</td>
+                </tr>
+                <tr>
+                    <td>wy</td>
+                    <td class="polish">robicie</td>
+                    <td>ihr macht</td>
+                </tr>
+                <tr>
+                    <td>oni/one</td>
+                    <td class="polish">robią</td>
+                    <td>sie machen</td>
+                </tr>
+            </table>
+            
+            <h3>Präteritum</h3>
+            <table>
+                <tr>
+                    <th>Person</th>
+                    <th>Polnisch (männlich)</th>
+                    <th>Polnisch (weiblich)</th>
+                    <th>Deutsch</th>
+                </tr>
+                <tr>
+                    <td>ja</td>
+                    <td class="polish">robiłem</td>
+                    <td class="polish">robiłam</td>
+                    <td>ich machte</td>
+                </tr>
+                <tr>
+                    <td>ty</td>
+                    <td class="polish">robiłeś</td>
+                    <td class="polish">robiłaś</td>
+                    <td>du machtest</td>
+                </tr>
+                <tr>
+                    <td>on/ona</td>
+                    <td class="polish">robił</td>
+                    <td class="polish">robiła</td>
+                    <td>er/sie machte</td>
+                </tr>
+                <tr>
+                    <td>my</td>
+                    <td class="polish">robiliśmy</td>
+                    <td class="polish">robiłyśmy</td>
+                    <td>wir machten</td>
+                </tr>
+                <tr>
+                    <td>wy</td>
+                    <td class="polish">robiliście</td>
+                    <td class="polish">robiłyście</td>
+                    <td>ihr machtet</td>
+                </tr>
+                <tr>
+                    <td>oni/one</td>
+                    <td class="polish">robili</td>
+                    <td class="polish">robiły</td>
+                    <td>sie machten</td>
+                </tr>
+            </table>
+            
+            <h3>Futur</h3>
+            <table>
+                <tr>
+                    <th>Person</th>
+                    <th>Polnisch</th>
+                    <th>Deutsch</th>
+                </tr>
+                <tr>
+                    <td>ja</td>
+                    <td class="polish">będę robić</td>
+                    <td>ich werde machen</td>
+                </tr>
+                <tr>
+                    <td>ty</td>
+                    <td class="polish">będziesz robić</td>
+                    <td>du wirst machen</td>
+                </tr>
+                <tr>
+                    <td>on/ona/ono</td>
+                    <td class="polish">będzie robić</td>
+                    <td>er/sie/es wird machen</td>
+                </tr>
+                <tr>
+                    <td>my</td>
+                    <td class="polish">będziemy robić</td>
+                    <td>wir werden machen</td>
+                </tr>
+                <tr>
+                    <td>wy</td>
+                    <td class="polish">będziecie robić</td>
+                    <td>ihr werdet machen</td>
+                </tr>
+                <tr>
+                    <td>oni/one</td>
+                    <td class="polish">będą robić</td>
+                    <td>sie werden machen</td>
+                </tr>
+            </table>
+            
+            <h3>Imperativ</h3>
+            <table>
+                <tr>
+                    <th>Form</th>
+                    <th>Polnisch</th>
+                    <th>Deutsch</th>
+                </tr>
+                <tr>
+                    <td>Singular</td>
+                    <td class="polish">rób</td>
+                    <td>mach!</td>
+                </tr>
+                <tr>
+                    <td>Plural</td>
+                    <td class="polish">róbcie</td>
+                    <td>macht!</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="verb-column">
+            <h2>zrobić (aspekt dokonany – perfektiv)</h2>
+            <p class="translation">Übersetzung: machen, tun (abgeschlossen, einmalig, vollendet)</p>
+            
+            <div class="aspect-info">
+                <p><strong>Hinweis:</strong> Perfektive Verben haben keine Präsensformen im eigentlichen Sinne. Die "Präsens"-Formen drücken die abgeschlossene Zukunft aus.</p>
+            </div>
+            
+            <h3>Futur (einfach)</h3>
+            <table>
+                <tr>
+                    <th>Person</th>
+                    <th>Polnisch</th>
+                    <th>Deutsch</th>
+                </tr>
+                <tr>
+                    <td>ja</td>
+                    <td class="polish">zrobię</td>
+                    <td>ich werde machen (und fertig sein)</td>
+                </tr>
+                <tr>
+                    <td>ty</td>
+                    <td class="polish">zrobisz</td>
+                    <td>du wirst machen (und fertig sein)</td>
+                </tr>
+                <tr>
+                    <td>on/ona/ono</td>
+                    <td class="polish">zrobi</td>
+                    <td>er/sie/es wird machen (und fertig sein)</td>
+                </tr>
+                <tr>
+                    <td>my</td>
+                    <td class="polish">zrobimy</td>
+                    <td>wir werden machen (und fertig sein)</td>
+                </tr>
+                <tr>
+                    <td>wy</td>
+                    <td class="polish">zrobicie</td>
+                    <td>ihr werdet machen (und fertig sein)</td>
+                </tr>
+                <tr>
+                    <td>oni/one</td>
+                    <td class="polish">zrobią</td>
+                    <td>sie werden machen (und fertig sein)</td>
+                </tr>
+            </table>
+            
+            <h3>Präteritum</h3>
+            <table>
+                <tr>
+                    <th>Person</th>
+                    <th>Polnisch (männlich)</th>
+                    <th>Polnisch (weiblich)</th>
+                    <th>Deutsch</th>
+                </tr>
+                <tr>
+                    <td>ja</td>
+                    <td class="polish">zrobiłem</td>
+                    <td class="polish">zrobiłam</td>
+                    <td>ich habe gemacht (vollendet)</td>
+                </tr>
+                <tr>
+                    <td>ty</td>
+                    <td class="polish">zrobiłeś</td>
+                    <td class="polish">zrobiłaś</td>
+                    <td>du hast gemacht (vollendet)</td>
+                </tr>
+                <tr>
+                    <td>on/ona</td>
+                    <td class="polish">zrobił</td>
+                    <td class="polish">zrobiła</td>
+                    <td>er/sie hat gemacht (vollendet)</td>
+                </tr>
+                <tr>
+                    <td>my</td>
+                    <td class="polish">zrobiliśmy</td>
+                    <td class="polish">zrobiłyśmy</td>
+                    <td>wir haben gemacht (vollendet)</td>
+                </tr>
+                <tr>
+                    <td>wy</td>
+                    <td class="polish">zrobiliście</td>
+                    <td class="polish">zrobiłyście</td>
+                    <td>ihr habt gemacht (vollendet)</td>
+                </tr>
+                <tr>
+                    <td>oni/one</td>
+                    <td class="polish">zrobili</td>
+                    <td class="polish">zrobiły</td>
+                    <td>sie haben gemacht (vollendet)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <h2>Beispielsätze</h2>
+    
+    <div class="example">
+        <h3>Imperfektiv (robić)</h3>
+        <p><span class="polish">robię obiad.</span> <span class="translation">– Ich mache das Mittagessen.</span></p>
+        <p><span class="polish">robiłeś to dobrze.</span> <span class="translation">– Du hast das gut gemacht. (männlich)</span></p>
+        <p><span class="polish">robiłyśmy remont.</span> <span class="translation">– Wir haben renoviert. (weiblich)</span></p>
+        <p><span class="polish">będziemy robić zakupy.</span> <span class="translation">– Wir werden einkaufen.</span></p>
+        <p><span class="polish">rób to szybciej!</span> <span class="translation">– Mach das schneller!</span></p>
+    </div>
+    
+    <div class="example">
+        <h3>Perfektiv (zrobić)</h3>
+        <p><span class="polish">zrobię to jutro.</span> <span class="translation">– Ich werde es morgen (erledigt) machen.</span></p>
+        <p><span class="polish">zrobiliśmy projekt wczoraj.</span> <span class="translation">– Wir haben das Projekt gestern (vollständig) gemacht.</span></p>
+        <p><span class="polish">ona zrobiła prezentację.</span> <span class="translation">– Sie hat die Präsentation (fertig) erstellt.</span></p>
+        <p><span class="polish">zrobisz zadanie?</span> <span class="translation">– Wirst du die Aufgabe (ganz) machen?</span></p>
+        <p><span class="polish">zrobiłam już pranie.</span> <span class="translation">– Ich habe bereits (das ganze) Wäschewaschen erledigt.</span></p>
+    </div>
+    
+    <div class="aspect-info">
+        <h3>Verwendungshinweise</h3>
+        <p><strong>robić (imperfektiv):</strong> Wird verwendet für wiederholte Handlungen (Ich mache jeden Tag Sport), andauernde Handlungen (Sie machte Hausaufgaben, als ich ankam) oder unvollendete Handlungen (Wir machen gerade eine Pause).</p>
+        <p><strong>zrobić (perfektiv):</strong> Wird verwendet für einmalige, abgeschlossene Handlungen (Ich habe gestern den Brief geschrieben), Handlungen mit Ergebnis (Er hat das Auto repariert) oder zukünftige abgeschlossene Handlungen (Ich werde das bis morgen fertig machen).</p>
+    </div>
+</body>
+</html>
